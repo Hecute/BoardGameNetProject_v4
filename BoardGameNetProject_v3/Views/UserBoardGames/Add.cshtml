@@ -1,0 +1,25 @@
+@model BoardGame
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Add Game</h1>
+
+<form asp-action="Add">
+    <div class="form-group">
+        @Html.DropDownList("Title", new SelectList(ViewBag.data, "Title", "Title"))
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Add" class="btn btn-primary"/>
+    </div>
+</form>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+
+

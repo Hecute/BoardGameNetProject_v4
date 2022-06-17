@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <div class="text-center">
+        <h1 class="display-4">Hi Stranger!</h1>
+        <p>Want to create list of your board games? Please <b>register</b> first</p>
+        <p>Or maybe you just want to see top games rated by others? Check <b>Board Game Rank</b>.</p>
+    </div>
+}
+@if (User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
+{
+    <div class="text-center">
+        <h1 class="display-4">Hi @User.Identity.Name</h1>
+        <p>Your list is waiting for you. Check <b>Mine Games</b>.</p>
+        <p>Or maybe you just want to see top games rated by others? Check <b>Board Game Rank</b>.</p>
+    </div>
+}
+@if (User.IsInRole("Admin"))
+{
+    <div class="text-center">
+        <h1 class="display-4">Hi Admin!</h1>
+        <p>Want to expand list of board games for beloved users? Check <b>Board Games</b>.</p>
+        <p>Or maybe you just want to see top games rated by others? Check <b>Board Game Rank</b>.</p>
+    </div>
+}

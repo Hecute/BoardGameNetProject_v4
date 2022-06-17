@@ -1,0 +1,34 @@
+@using System.Collections
+@model IEnumerable<BoardGameNetProject_v3.Models.BoardGame>
+
+@{
+    ViewData["Title"] = "Top Board Games";
+}
+
+<h1>Top Games</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.OrderByDescending(c => c.Rating)) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

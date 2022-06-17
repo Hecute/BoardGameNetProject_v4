@@ -1,0 +1,32 @@
+@model BoardGameNetProject_v3.Models.UserGame
+
+@{
+    ViewData["Title"] = "Rate";
+}
+
+<h1>Rate Game</h1>
+
+<hr />
+<b>Min rate: 1, Max rate: 10</b>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Rate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @Html.HiddenFor(model => model.Id)
+                @Html.HiddenFor(model => model.UserId)
+                @Html.HiddenFor(model => model.boardGameVm)
+                <input asp-for="User_rate" class="form-control"/>
+                <span asp-validation-for="User_rate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
